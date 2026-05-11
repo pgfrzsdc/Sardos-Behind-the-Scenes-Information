@@ -2,7 +2,11 @@ A small HTML project built to display more information about the Sardos official
 
 Contents:
 
-    List of rules with more information about each rule, plus punishments for breaking each rule.
+1. List of rules with more information about each rule, plus punishments for breaking each rule.
+
+2. List of current staff members in the server.
+
+3. A guide on how to apply to be a staff member
 
 What is planned to be added in the future:
 

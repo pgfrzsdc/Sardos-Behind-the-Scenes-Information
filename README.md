@@ -1,0 +1,19 @@
+A small HTML project built to display more information about the Sardos official discord sevrer "Sardos - Behind the scenes" (https://discord.gg/cgpSh9WXN3).
+
+Contents:
+
+    List of rules with more information about each rule, plus punishments for breaking each rule.
+
+What is planned to be added in the future:
+
+1.    List of current staff members, their description, and role within the staff system.
+
+2.    Direct link to a site built to appeal bans on the Discord server.
+
+3.    Custom domain (which doesnt lead to a github page like it does right now).
+
+If you have any questions about this project, or requests to make a custom information UI, like this for your own Discord or any other kind of server, feel free to contact me at @ptahetron on Discord.
+
+Link to the page: https://pgfrzsdc.github.io/Sardos-Behind-the-Scenes-Information/
+
+Link to the Discord server: https://discord.gg/cgpSh9WXN3

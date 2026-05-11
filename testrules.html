@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Server Information</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"gg sans","Segoe UI",sans-serif;
+}
+
+body{
+    background:#1e1f22;
+    color:#dcddde;
+    overflow-x:hidden;
+}
+
+/* ========================= */
+/* LOADING SCREEN (RECTANGLE) */
+/* ========================= */
+#loader{
+    position:fixed;
+    inset:0;
+    background:#1e1f22;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    flex-direction:column;
+    transition:opacity 0.8s ease;
+}
+
+.loader-bar-bg {
+    width: 200px;
+    height: 8px;
+    background: #313338;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.loader-bar-fill {
+    position: absolute;
+    height: 100%;
+    width: 0%;
+    background: #5865f2;
+    border-radius: 4px;
+    animation: fillBar 1.8s ease-in-out forwards;
+}
+
+@keyframes fillBar {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+.loading-text{
+    margin-top:20px;
+    color:#b5bac1;
+    letter-spacing:2px;
+    font-size:14px;
+    text-transform: uppercase;
+}
+
+/* ========================= */
+/* MAIN CONTENT */
+/* ========================= */
+.main{
+    max-width:1000px;
+    margin:auto;
+    padding:60px 30px;
+}
+
+.header{
+    margin-bottom:60px;
+}
+
+.header h1{
+    font-size:42px;
+    margin-bottom:10px;
+    color:white;
+}
+
+.header p{
+    color:#a8aaae;
+    line-height:1.6;
+}
+
+.section{
+    margin-bottom:60px;
+}
+
+.section-title{
+    font-size:24px;
+    margin-bottom:25px;
+    color:white;
+    border-bottom:1px solid #313338;
+    padding-bottom:12px;
+}
+
+/* ========================= */
+/* ACCORDION ITEMS */
+/* ========================= */
+.item{
+    border-bottom:1px solid #2b2d31;
+    transition:0.2s;
+}
+
+.item-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 6px;
+    cursor:pointer;
+    user-select: none;
+}
+
+.item-header:hover{
+    background:#232428;
+}
+
+.item-title{
+    font-size:16px;
+    font-weight:600;
+}
+
+.toggle{
+    color:#949ba4;
+    font-size:22px;
+    transition:0.25s ease;
+}
+
+.item-content{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.35s ease;
+}
+
+.item-content p, .application-text{
+    padding:0 6px 20px 6px;
+    color:#b5bac1;
+    line-height:1.7;
+}
+
+/* ========================= */
+/* STAFF CARDS */
+/* ========================= */
+.staff-card{
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.staff-banner{
+    width:120px;
+    height:70px;
+    border-radius:10px;
+    object-fit:cover;
+    background:#313338;
+}
+
+.staff-info{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+}
+
+.staff-name{
+    font-size:18px;
+    color:white;
+}
+
+.staff-role{
+    font-size:14px;
+    color:#949ba4;
+}
+
+/* ========================= */
+/* APPLICATION BOX */
+/* ========================= */
+.application-box {
+    background: #2b2d31;
+    border-radius: 8px;
+    padding: 25px;
+    border-left: 4px solid #5865f2;
+}
+
+.application-text {
+    padding: 0;
+    white-space: pre-wrap; 
+}
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+.footer{
+    margin-top:80px;
+    padding-top:25px;
+    border-top:1px solid #313338;
+}
+
+.footer p{
+    color:#a8aaae;
+    line-height:1.8;
+}
+
+@media(max-width:700px){
+    .header h1{ font-size:30px; }
+    .staff-banner{ width:90px; height:60px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+    <div class="loader-bar-bg">
+        <div class="loader-bar-fill"></div>
+    </div>
+    <div class="loading-text">Loading Assets</div>
+</div>
+
+<div class="main">
+
+    <div class="header">
+        <h1>Server Information</h1>
+        <p>Rules, punishments, staff members and additional server information.</p>
+    </div>
+
+    <!-- RULES SECTION -->
+    <div class="section">
+        <div class="section-title">Rules</div>
+
+        <!-- Rule 1 -->
+        <div class="item">
+            <div class="item-header" onclick="toggleItem(this)">
+                <div class="item-title">1. Respect</div>
+                <div class="toggle">+</div>
+            </div>
+            <div class="item-content">
+                <p>You must have respect to every member of the server. | failure to follow this rule will result in: 1 warning > 15 minute timeout > 15 minute timeout > 24 hour timeout > soft ban.</p>
+            </div>
+        </div>
+
+        <!-- Rule 2 -->
+        <div class="item">
+            <div class="item-header" onclick="toggleItem(this)">
+                <div class="item-title">2. NSFW Content</div>
+                <div class="toggle">+</div>
+            </div>
+            <div class="item-content">
+                <p>That includes [nudity, sexual content, graphical violence]. | failure to follow this rule will result in: a permanent ban.</p>
+            </div>
+        </div>
+
+        <!-- Rule 3 -->
+        <div class="item">
+            <div class="item-header" onclick="toggleItem(this)">
+                <div class="item-title">3. Spamming/Flooding</div>
+                <div class="toggle">+</div>
+            </div>
+            <div class="item-content">
+                <p>Spamming and/or flooding any server channels with any material is strictly prohibited. | failure to follow this rule will result in: 15 minute timeout > 30 minute timeout > 24 hour timeout > soft ban.</p>
+            </div>
+        </div>
+
+        <!-- Rule 4 -->
+        <div class="item">
+            <div class="item-header" onclick="toggleItem(this)">
+                <div class="item-title">4. Profanity</div>
+                <div class="toggle">+</div>
+            </div>
+            <div class="item-content">
+                <p>Keep profanity at a minimum. | failure to follow this rule will result in: 15 minute timeout > 30 minute timeout > 24 hour timeout > soft ban.</p>
+            </div>
+        </div>
+
+        <!-- Rule 5 -->
+        <div class="item">
+            <div class="item-header" onclick="toggleItem(this)">
+                <div class="item-title">5. Promotion</div>
+                <div class="toggle">+</div>
+            </div>
+            <div class="item-content">
+                <p>Any kind of promotion [services, other servers] is strictly prohibited. | failure to follow this rule will result in: 12 hour timeout > permanent ban.</p>
+            </div>
+        </div>
+
+        <!-- Rule 6 -->
+        <div class="item">
+            <div class="item-header" onclick="toggleItem(this)">
+                <div class="item-title">6. Harassment</div>
+                <div class="toggle">+</div>
+            </div>
+            <div class="item-content">
+                <p>Any kind of harassment of any server member is strictly prohibited. | failure to follow this rule will result in: 12 hour timeout > 24 hour timeout > permanent ban.</p>
+            </div>
+        </div>
+
+        <!-- Rule 7 -->
+        <div class="item">
+            <div class="item-header" onclick="toggleItem(this)">
+                <div class="item-title">7. Language</div>
+                <div class="toggle">+</div>
+            </div>
+            <div class="item-content">
+                <p>The server language is English, please refrain from using any other languages in any part of the server so our moderators can keep track of topics/context, ensuring the safety of the server and it's members. | failure to follow this rule will result in: 15 minute timeout > 30 minute timeout > 12 hour timeout > 24 hour timeout > soft ban.</p>
+            </div>
+        </div>
+
+        <!-- Rule 8 -->
+        <div class="item">
+            <div class="item-header" onclick="toggleItem(this)">
+                <div class="item-title">8. Sensitive Topics</div>
+                <div class="toggle">+</div>
+            </div>
+            <div class="item-content">
+                <p>Sensitive topics such as politics, are allowed, as long as they don't break any other rules.</p>
+            </div>
+        </div>
+
+        <!-- Rule 9 -->
+        <div class="item">
+            <div class="item-header" onclick="toggleItem(this)">
+                <div class="item-title">9. Offensive Content on Profile</div>
+                <div class="toggle">+</div>
+            </div>
+            <div class="item-content">
+                <p>Any content contained within the profile that breaks the server's rules or may be deemed as offensive must be removed within 24 hours of joining the server. | failure to follow this rule will result in: soft ban.</p>
+            </div>
+        </div>
+
+        <!-- Rule 10 -->
+        <div class="item">
+            <div class="item-header" onclick="toggleItem(this)">
+                <div class="item-title">10. Voice Channels</div>
+                <div class="toggle">+</div>
+            </div>
+            <div class="item-content">
+                <p>All voice channels are constantly recorded to ensure the server's and its members' safety, all recordings are automatically deleted after 20 days (unless used for investigation purposes), are not and will not be used in any way that break Discord's ToS (Terms of Service), once you join the server, you automatically consent to this.</p>
+            </div>
+        </div>
+
+        <!-- Rule 11 -->
+        <div class="item">
+            <div class="item-header" onclick="toggleItem(this)">
+                <div class="item-title">11. Extremism & Discrimination</div>
+                <div class="toggle">+</div>
+            </div>
+            <div class="item-content">
+                <p>Any form of extremism, racism, nationalism, or discrimination is strictly prohibited. | failure to follow this rule will result in: permanent ban.</p>
+            </div>
+        </div>
+
+        <!-- Placeholders for rules 12 and 13 -->
+        <div class="item">
+            <div class="item-header" onclick="toggleItem(this)">
+                <div class="item-title">12. Reserved</div>
+                <div class="toggle">+</div>
+            </div>
+            <div class="item-content">
+                <p>Reserved for future rule updates.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-header" onclick="toggleItem(this)">
+                <div class="item-title">13. Reserved</div>
+                <div class="toggle">+</div>
+            </div>
+            <div class="item-content">
+                <p>Reserved for future rule updates.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PUNISHMENTS SECTION -->
+    <div class="section">
+        <div class="section-title">Punishments</div>
+
+        <div class="item">
+            <div class="item-header" onclick="toggleItem(this)">
+                <div class="item-title">Timeouts</div>
+                <div class="toggle">+</div>
+            </div>
+            <div class="item-content">
+                <p>A timeout is a form of disciplinary action taken against a server member when that member breaks the server rules, the timeout restricts the user from joining voice channels, sending messages, or reacting to messages from other messages for a set amount of time.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-header" onclick="toggleItem(this)">
+                <div class="item-title">Warnings</div>
+                <div class="toggle">+</div>
+            </div>
+            <div class="item-content">
+                <p>A warning is a form of notice to a server member when that server member breaks a minor server rule(s), and are usually given to a server member before a timeout if a rule is broken again, a warning could be given to a member by a staff member via either message or through a voice channel.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-header" onclick="toggleItem(this)">
+                <div class="item-title">Soft Bans</div>
+                <div class="toggle">+</div>
+            </div>
+            <div class="item-content">
+                <p>A soft ban is when a user is banned from the server, restricting their access to it completely, but unlike a permanent ban, a soft ban gives the user a chance to appeal their ban, and return to the server.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="item-header" onclick="toggleItem(this)">
+                <div class="item-title">Permanent Bans</div>
+                <div class="toggle">+</div>
+            </div>
+            <div class="item-content">
+                <p>A permanent ban is when a user is banned from the server, restricting their access to it completely and permanently, without the chance for appeal.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- STAFF SECTION -->
+    <div class="section">
+        <div class="section-title">Staff</div>
+        
+        <!-- Repeat this block 5 times for staff -->
+        <div class="item">
+            <div class="item-header" onclick="toggleItem(this)">
+                <div class="staff-card">
+                    <img class="staff-banner" src="Sardos.png">
+                    <div class="staff-info">
+                        <div class="staff-name">@_sardos_</div>
+                        <div class="staff-role">Founder</div>
+                    </div>
+                </div>
+                <div class="toggle">+</div>
+            </div>
+            <div class="item-content">
+                <p>Sardos (username: @_sardos_), the founder of the server, and it's main administrator, everything in the server is under his control.</p>
+            </div>
+        </div>
+        <!-- Add more staff blocks here as needed -->
+    
+            <!-- Repeat this block 5 times for staff -->
+        <div class="item">
+            <div class="item-header" onclick="toggleItem(this)">
+                <div class="staff-card">
+                    <img class="staff-banner" src="Aryoch.png">
+                    <div class="staff-info">
+                        <div class="staff-name">@aryochleft</div>
+                        <div class="staff-role">Head moderator</div>
+                    </div>
+                </div>
+                <div class="toggle">+</div>
+            </div>
+            <div class="item-content">
+                <p>Aryoch (username: @aryochleft), is the head moderator, able to oversee almost everything in the server, Aryoch displays more mercy towards rulebreakers than other staff members, usually giving a second chance to people.</p>
+            </div>
+        </div>
+        <!-- Add more staff blocks here as needed -->
+        
+                    <!-- Repeat this block 5 times for staff -->
+        <div class="item">
+            <div class="item-header" onclick="toggleItem(this)">
+                <div class="staff-card">
+                    <img class="staff-banner" src="https://placeholder.com">
+                    <div class="staff-info">
+                        <div class="staff-name">USERNAME HERE</div>
+                        <div class="staff-role">ROLE HERE</div>
+                    </div>
+                </div>
+                <div class="toggle">+</div>
+            </div>
+            <div class="item-content">
+                <p>DESCRIPTION HERE</p>
+            </div>
+        </div>
+        <!-- Add more staff blocks here as needed -->
+        
+                    <!-- Repeat this block 5 times for staff -->
+        <div class="item">
+            <div class="item-header" onclick="toggleItem(this)">
+                <div class="staff-card">
+                    <img class="staff-banner" src="https://placeholder.com">
+                    <div class="staff-info">
+                        <div class="staff-name">USERNAME HERE</div>
+                        <div class="staff-role">ROLE HERE</div>
+                    </div>
+                </div>
+                <div class="toggle">+</div>
+            </div>
+            <div class="item-content">
+                <p>DESCRIPTION HERE</p>
+            </div>
+        </div>
+        <!-- Add more staff blocks here as needed -->
+    
+            <!-- Repeat this block 5 times for staff -->
+        <div class="item">
+            <div class="item-header" onclick="toggleItem(this)">
+                <div class="staff-card">
+                    <img class="staff-banner" src="https://placeholder.com">
+                    <div class="staff-info">
+                        <div class="staff-name">USERNAME HERE</div>
+                        <div class="staff-role">ROLE HERE</div>
+                    </div>
+                </div>
+                <div class="toggle">+</div>
+            </div>
+            <div class="item-content">
+                <p>DESCRIPTION HERE</p>
+            </div>
+        </div>
+        <!-- Add more staff blocks here as needed -->
+    </div>
+
+    <!-- APPLICATION SECTION -->
+    <div class="section">
+        <div class="section-title">How to apply to be a staff member</div>
+        <div class="application-box">
+            <div class="application-text">
+How to apply for a staff member:
+
+1. Secure account - make sure you have 2FA (2 Factor Authentication) on, an email connected to your account, a secure password, and an account age of over 6 months, We cannot afford a compromised account which has control over major server assets. It is not only for your safety, but for everyone's safety.
+
+2. Resume - fill out the resume using the provided template, a link to the template is below, for any questions you cannot answer, write "N/A".
+
+Link to resume:
+
+3. Send it - Once you have filled out the resume, copy it, and send it to the username listed below in message form via Discord:
+
+@_sardos_
+
+4. Questions - If you are asked any additional questions related to the application by the user, please answer them.
+
+5. Await - over a period of 48 hours, your resume will be analyzed, and it will be decided if you are accepted into the staff team or not, you will get one of the following messages below:
+
+
+Accepted.
+
+Dear @username, after carefully analyzing your resume, we have decided to accept you into the staff team for the server "Sardos - Behind the Scenes", for the role "roleexample", within the next 10-15 minutes, you will be given an instruction manual for your role, and a training version of your role, if you have any questions related to your role or the staff team, please ask those questions within the next 5 minutes.
+
+;
+
+Rejected.
+
+Dear @username, after carefully analyzing your resume, we have decided to reject your application for joining the staff team for the server "Sardos - Behind the Scenes", for the reason: "example reason here", if you'd like to join the staff team, you may retry in 50 days. If you have any questions related to the staff team, please ask those questions within the next 5 minutes.
+
+;
+
+Good luck!
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Link to the Discord server: https://discord.gg/cgpSh9WXN3.
+           If you'd like to contact the creator of the page, contact me at @ptahetron on Discord.</p>
+    </div>
+
+</div>
+
+<script>
+function toggleItem(element){
+    const content = element.nextElementSibling;
+    const toggle = element.querySelector(".toggle");
+
+    if(content.style.maxHeight){
+        content.style.maxHeight = null;
+        toggle.textContent = "+";
+        toggle.style.transform = "rotate(0deg)";
+    } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        toggle.textContent = "−";
+        toggle.style.transform = "rotate(180deg)";
+    }
+}
+
+window.addEventListener("load", ()=>{
+    setTimeout(()=>{
+        const loader = document.getElementById("loader");
+        loader.style.opacity = "0";
+        setTimeout(()=>{ loader.style.display = "none"; }, 800);
+    }, 1800);
+});
+</script>
+
+</body>
+</html>
+

@@ -21,3 +21,13 @@ If you have any questions about this project, or requests to make a custom infor
 Link to the page: https://pgfrzsdc.github.io/Sardos-Behind-the-Scenes-Information/
 
 Link to the Discord server: https://discord.gg/cgpSh9WXN3
+
+
+
+# News
+
+14/05/2026:
+
+All project updates and modifications have been currently halted, due to a situation in the server, it is very possible that this project may be shut down.
+
+Please await further as we will all see if the situation is solved or not, thank you for your understanding.

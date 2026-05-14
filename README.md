@@ -1,3 +1,5 @@
+# About the project
+
 A small HTML project built to display more information about the Sardos official discord sevrer "Sardos - Behind the scenes" (https://discord.gg/cgpSh9WXN3).
 
 Contents:
